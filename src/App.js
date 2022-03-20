@@ -24,10 +24,11 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    const filteredPlaces = places.filter((place) => place.rating >= rating);
+    const filteredPlaces = places?.filter((place) => place.rating >= rating);
 
     setFilteredPlaces(filteredPlaces);
-  }, [places, rating]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rating]);
 
   useEffect(() => {
     if(bounds.sw && bounds.ne) {
